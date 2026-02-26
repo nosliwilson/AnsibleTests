@@ -1,0 +1,13 @@
+---
+- name: Atualizar Repositórios Debian/Ubuntu 📦
+  hosts: all_servers
+  become: yes  # Isso ativa o sudo para todos os comandos abaixo
+  tasks:
+    - name: Executar apt update
+      ansible.builtin.apt:
+        update_cache: yes
+        force_apt_get: yes # Garante compatibilidade em sistemas variados
+
+    - name: Opcional - Upgrade de todos os pacotes
+      ansible.builtin.apt:
+        upgrade: dist # "dist" é similar ao apt dist-upgrade
