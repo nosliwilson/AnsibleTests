@@ -1,0 +1,7 @@
+---
+- name: Testando a comunicacao com os servidores 📡
+  hosts: all_servers
+  become: yes
+  tasks:
+    - name: Verificar se o servidor responde
+      ansible.builtin.ping:
